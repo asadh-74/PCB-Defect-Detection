@@ -1,6 +1,6 @@
-torch>=2.1
-torchvision>=0.16
-ultralytics>=8.3
+torch>=2.3
+torchvision>=0.18
+ultralytics==8.4.181
 opencv-python-headless>=4.8
 numpy>=1.24
 pandas>=2.0
@@ -11,3 +11,4 @@ tqdm>=4.65
 pytest>=7.0
 kagglehub>=0.3
 huggingface_hub>=0.23
+streamlit>=1.40,<2

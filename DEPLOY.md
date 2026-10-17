@@ -1,72 +1,46 @@
-# Deploy the app on Streamlit Community Cloud
+# Demo setup and optional hosting
 
-## 1. Export the trained model (in Colab, after training and evaluation)
+First complete an actual PCB training/evaluation run. The app opens before training but does not
+include a working six-class checkpoint until you export one. A COCO starting checkpoint is not enough.
 
-```python
-!python -m src.export_for_app --model yolo --weights weights/yolo_best.pt
-!zip -r models.zip models
-from google.colab import files; files.download('models.zip')
+## Export a selected run
+
+```powershell
+& ".\.venv\Scripts\python.exe" -m src.export_for_app --model yolo --weights weights/grouped_tiles_yolo_best.pt --results results/grouped_tiles_yolo
+& ".\.venv\Scripts\python.exe" -m streamlit run streamlit_app/app.py
 ```
 
-Unzip `models.zip` into the `models/` folder of your local copy of this project. It should contain
-`yolo_best.pt` (about 22 MB for yolov8s) plus `metrics_yolo.json` and `confusion_matrix_yolo.png`.
+The pipeline also exports automatically. `models/` contains `yolo_best.pt`, `metrics_yolo.json` and,
+when available, the confusion matrix. Keep the checkpoint and its corresponding results together.
+From Colab, download the artifacts archive in the final notebook cell and extract it into this project.
 
-## 2. Test locally
+## Optional Streamlit hosting
+
+Use the provider's current instructions: https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app
+Choose this repository, the desired branch, and `streamlit_app/app.py` as the entry point.
+`streamlit_app/requirements.txt` is the app-specific dependency list; `packages.txt` is at the root.
+Verify which requirements file the provider selects in its build logs and use Python 3.12 if supported.
+CPU inference works locally; provider memory/runtime limits and available Python versions may change.
+No hosted app is created by this repository update.
+
+Before publishing, explicitly add only your trained model and matching exported metrics:
 
 ```bash
-pip install -r streamlit_app/requirements.txt
-streamlit run streamlit_app/app.py
+git add models/yolo_best.pt models/metrics_yolo.json models/confusion_matrix_yolo.png
+git commit -m "Add trained PCB demo model and evaluation evidence"
+git push
 ```
 
-Upload a board image from the dataset. If you have no `models/` folder yet, the sidebar lets you upload a `.pt` file.
+If the confusion matrix is absent, omit that filename. Check checkpoint size against GitHub's current
+file limit before committing large weights; a smaller detector may be more practical for a CPU demo.
+Exclude raw datasets, credentials, local environments and unrelated files. Keep dataset licensing
+requirements when sharing samples. No sample image is bundled because no verified dataset sample
+was supplied with the project archive.
 
-## 3. Push to GitHub
+## Demo checklist
 
-```bash
-git init
-git add .
-git commit -m "PCB defect detection app"
-git branch -M main
-git remote add origin https://github.com/<your-username>/pcb-defect-detection.git
-git push -u origin main
-```
-
-Check that `models/yolo_best.pt` is in the commit (`git ls-files models`). The `.gitignore` already excludes
-datasets, training runs, and the `weights/` folder, but not `models/`.
-
-## 4. Deploy
-
-1. Go to https://share.streamlit.io and sign in with GitHub.
-2. Create app, then pick the repository, branch `main`, and main file path `streamlit_app/app.py`.
-3. Open Advanced settings and choose Python 3.11 (safest for the PyTorch CPU wheels).
-4. Deploy. The first build takes several minutes because it installs PyTorch.
-
-`streamlit_app/requirements.txt` installs the CPU build of PyTorch (no GPU on the free tier) and
-`packages.txt` installs the system libraries OpenCV needs.
-
-## If the build runs out of memory or times out
-
-Streamlit Community Cloud has limited RAM. Hugging Face Spaces gives more room and takes the same code:
-
-1. Create a new Space with the Streamlit SDK.
-2. Push this repo to it. Put this at the top of the Space README.md:
-
-```
----
-title: PCB Defect Detector
-sdk: streamlit
-app_file: streamlit_app/app.py
-python_version: "3.11"
----
-```
-
-3. Copy `streamlit_app/requirements.txt` to the repo root as `requirements.txt` and `packages.txt` stays at the root.
-
-## Troubleshooting
-
-| Symptom | Fix |
-|---|---|
-| `libGL.so.1` import error | Make sure `packages.txt` is at the repo root and redeploy |
-| "No trained model is available yet" | `models/yolo_best.pt` was not committed; check `git ls-files models` |
-| Slow on big boards | Free tier is CPU only; a 3000x1600 board is about 20 tiles. Lower the rescale slider |
-| File over 100 MB rejected by GitHub | Use a smaller model (yolov8s or yolov8n) or Git LFS |
+1. Open locally and upload a genuine bare-PCB image.
+2. Confirm the model has the six project classes and metrics describe the chosen protocol.
+3. Check the colour legend, confidence control, zoomed crops and PNG/CSV downloads.
+4. Confirm full-image and tiled variants use their matching inference paths.
+5. If there are no detections, say "none detected at this threshold"; do not claim the board is defect-free.

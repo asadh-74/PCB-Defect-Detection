@@ -1,0 +1,40 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "1. Pipeline: quick test (minutes)",
+      "type": "debugpy", "request": "launch",
+      "program": "${workspaceFolder}/run_pipeline.py",
+      "args": ["--profile", "quick"],
+      "console": "integratedTerminal", "justMyCode": true
+    },
+    {
+      "name": "2. Pipeline: full run, NVIDIA GPU",
+      "type": "debugpy", "request": "launch",
+      "program": "${workspaceFolder}/run_pipeline.py",
+      "args": ["--profile", "gpu"],
+      "console": "integratedTerminal", "justMyCode": true
+    },
+    {
+      "name": "3. Pipeline: full run, CPU only",
+      "type": "debugpy", "request": "launch",
+      "program": "${workspaceFolder}/run_pipeline.py",
+      "args": ["--profile", "cpu"],
+      "console": "integratedTerminal", "justMyCode": true
+    },
+    {
+      "name": "4. Streamlit app",
+      "type": "debugpy", "request": "launch",
+      "module": "streamlit",
+      "args": ["run", "streamlit_app/app.py"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "5. Run tests",
+      "type": "debugpy", "request": "launch",
+      "module": "pytest",
+      "args": ["tests", "-q"],
+      "console": "integratedTerminal"
+    }
+  ]
+}
