@@ -133,3 +133,17 @@ Exact artifact paths added from the submitted ZIP:
 - `results/yolo_final/stats.json`
 - `results/yolo_final/training_args.yaml`
 - `results/yolo_final/training_history.csv`
+
+
+## Streamlit deployment preparation
+
+- `streamlit_app/requirements.txt`: pin verified CPU PyTorch/torchvision builds and Streamlit,
+  retain the tested Ultralytics version, and bound other app dependency major versions. The root
+  training dependency list is unchanged. This prevents a generic Torch resolution choosing CUDA
+  packages on the CPU-only hosting service.
+- `DEPLOY.md`: add exact repository, branch, entrypoint, Python version, empty-secrets setup,
+  build checks and live test instructions. Authentication/deployment status must be verified separately.
+- `FULL_FILE_CONTENTS.md`: current complete text for the changed requirements and deployment guide.
+
+The model and evaluation results are unchanged. These edits prepare deployment; they do not by
+themselves demonstrate that a Streamlit account has signed in or that a hosted app is running.

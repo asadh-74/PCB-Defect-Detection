@@ -1,51 +1,67 @@
-> A trained checkpoint is now bundled in `models/`. For the demo, install dependencies and run
-> `python -m streamlit run streamlit_app/app.py`; dataset download and training are optional.
-> The recorded test evidence is in `results/yolo_final/`. Back up the bundled `models/` before
-> running any training pipeline, because its export step replaces the demo model.
+# Deploy this trained PCB app on Streamlit Community Cloud
 
-# Demo setup and optional hosting
+The trained checkpoint and its verified evaluation files are already in this repository.
+Deployment does not require running Colab, downloading the dataset, or keeping VS Code open.
 
-First complete an actual PCB training/evaluation run. The app opens before training but does not
-include a working six-class checkpoint until you export one. A COCO starting checkpoint is not enough.
+## Exact deployment settings
 
-## Export a selected run
+| Setting | Value |
+|---|---|
+| Repository | `asadh-74/PCB-Defect-Detection` |
+| Branch | `main` |
+| Main file path | `streamlit_app/app.py` |
+| Python version (Advanced settings) | `3.12` |
+| Secrets | Leave empty; this app requires no API keys |
+
+1. Sign in at https://share.streamlit.io using the account linked to your GitHub workspace.
+2. Choose **Create app**, then **Yup, I have an app** if prompted.
+3. Enter the repository, branch and file path above.
+4. Open **Advanced settings**, select Python **3.12**, and save.
+5. Optionally choose an available descriptive app URL, then click **Deploy**.
+6. Wait for the build and confirm the app displays YOLO, the validation-selected threshold 0.60,
+   and the recorded test results on its About tab.
+7. Upload an original bare-PCB image at 100% rescale. Confirm predictions and PNG/CSV downloads.
+
+Streamlit searches the entrypoint directory before the repository root for dependencies. Therefore
+`streamlit_app/requirements.txt` is used for this deployment; root `requirements.txt` remains the local
+training/development environment. The app dependency list pins the CPU PyTorch/torchvision builds,
+Ultralytics and Streamlit versions exercised during verification. Root `packages.txt` supplies the
+OpenCV runtime libraries. No model download is required at inference time.
+
+Official guidance:
+- https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy
+- https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies
+
+## Share and close local tools
+
+Only after the hosted app has loaded and a test image has completed inference, copy its actual
+`streamlit.app` URL for your submission. Do not substitute the local `localhost:8501` URL.
+The hosted app runs independently of your computer; VS Code and the local server can then be closed.
+Free hosting availability and resource limits are controlled by the provider.
+
+## Local use and optional retraining
+
+Run from the project root after local setup:
 
 ```powershell
-& ".\.venv\Scripts\python.exe" -m src.export_for_app --model yolo --weights weights/grouped_tiles_yolo_best.pt --results results/grouped_tiles_yolo
-& ".\.venv\Scripts\python.exe" -m streamlit run streamlit_app/app.py
+& ".\.venv\Scripts\python.exe" -m streamlit run .\streamlit_app\app.py
 ```
 
-The pipeline also exports automatically. `models/` contains `yolo_best.pt`, `metrics_yolo.json` and,
-when available, the confusion matrix. Keep the checkpoint and its corresponding results together.
-From Colab, download the artifacts archive in the final notebook cell and extract it into this project.
+The existing model was trained and tested already. Do not run training inside the cloud app.
+If you retrain later, export only the selected checkpoint and its matching evaluation, then commit
+those changes intentionally. The normal pipeline export replaces the local `models/` files.
 
-## Optional Streamlit hosting
+## Deployment troubleshooting
 
-Use the provider's current instructions: https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app
-Choose this repository, the desired branch, and `streamlit_app/app.py` as the entry point.
-`streamlit_app/requirements.txt` is the app-specific dependency list; `packages.txt` is at the root.
-Verify which requirements file the provider selects in its build logs and use Python 3.12 if supported.
-CPU inference works locally; provider memory/runtime limits and available Python versions may change.
-No hosted app is created by this repository update.
+- **No trained model:** confirm `models/yolo_best.pt` is present on the selected GitHub branch.
+- **Wrong dependency file:** the entrypoint must be `streamlit_app/app.py`, whose adjacent requirements
+  file contains the cloud CPU versions. Do not select a different Python entrypoint.
+- **Missing wheel or dependency:** verify Python 3.12 in Advanced settings and inspect build logs.
+- **Slow first image:** allow the model to initialize. CPU cloud inference is different from the
+  Tesla T4 timing recorded in the report.
+- **Resource limit:** test with one normal-resolution board at 100% rescale before uploading batches.
+- **Sign-in or GitHub authorization:** complete the account's authentication/consent in Streamlit;
+  never paste passwords, verification codes or API keys into chat or this repository.
 
-Before publishing, explicitly add only your trained model and matching exported metrics:
-
-```bash
-git add models/yolo_best.pt models/metrics_yolo.json models/confusion_matrix_yolo.png
-git commit -m "Add trained PCB demo model and evaluation evidence"
-git push
-```
-
-If the confusion matrix is absent, omit that filename. Check checkpoint size against GitHub's current
-file limit before committing large weights; a smaller detector may be more practical for a CPU demo.
-Exclude raw datasets, credentials, local environments and unrelated files. Keep dataset licensing
-requirements when sharing samples. No sample image is bundled because no verified dataset sample
-was supplied with the project archive.
-
-## Demo checklist
-
-1. Open locally and upload a genuine bare-PCB image.
-2. Confirm the model has the six project classes and metrics describe the chosen protocol.
-3. Check the colour legend, confidence control, zoomed crops and PNG/CSV downloads.
-4. Confirm full-image and tiled variants use their matching inference paths.
-5. If there are no detections, say "none detected at this threshold"; do not claim the board is defect-free.
+A repository update alone is not a completed deployment. Verify an actual hosted URL and inference
+before claiming the app is live. No public hosted URL is recorded until that verification succeeds.
