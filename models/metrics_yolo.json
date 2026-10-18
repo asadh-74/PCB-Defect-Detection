@@ -1,0 +1,111 @@
+{
+  "tile": 640,
+  "stride": 480,
+  "evaluation_unit": "board",
+  "split_mode": "board",
+  "representation": "tiled",
+  "subset_evaluation": false,
+  "threshold_source": "validation",
+  "size_definition": "sqrt(box area) in original board pixels",
+  "n_images": 120,
+  "ms_per_image": 219.74270589166355,
+  "name": "yolo_final",
+  "model": "YOLO",
+  "split": "test",
+  "conf": 0.6000000000000001,
+  "n_tiles": 120,
+  "n_gt": 562,
+  "map50": 0.9473501714192588,
+  "map50_95": 0.4614766542046836,
+  "precision": 0.9602888086642599,
+  "recall": 0.9466192170818505,
+  "f1_macro": 0.9520856308043454,
+  "per_class_ap50": {
+    "missing_hole": 0.8598039749029849,
+    "mouse_bite": 0.9841090615364968,
+    "open_circuit": 0.9934232337260872,
+    "short": 0.9021771717632708,
+    "spur": 0.9553606095903706,
+    "spurious_copper": 0.9892269769963422
+  },
+  "size_recall": {
+    "<16px": null,
+    "16-32px": null,
+    "32-64px": 1.0,
+    ">=64px": 0.9222797927461139
+  },
+  "size_counts": {
+    "<16px": 0,
+    "16-32px": 0,
+    "32-64px": 176,
+    ">=64px": 386
+  },
+  "confusion": [
+    [
+      89,
+      0,
+      0,
+      0,
+      0,
+      0,
+      7
+    ],
+    [
+      0,
+      101,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      83,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      72,
+      1,
+      0,
+      8
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      98,
+      0,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      1,
+      89,
+      11
+    ],
+    [
+      7,
+      2,
+      2,
+      7,
+      2,
+      0,
+      0
+    ]
+  ],
+  "ms_per_tile": 219.74270589166355,
+  "fps": 4.550776763862255,
+  "n_params": 3139218
+}

@@ -1,3 +1,8 @@
+> A trained checkpoint is now bundled in `models/`. For the demo, install dependencies and run
+> `python -m streamlit run streamlit_app/app.py`; dataset download and training are optional.
+> The recorded test evidence is in `results/yolo_final/`. Back up the bundled `models/` before
+> running any training pipeline, because its export step replaces the demo model.
+
 # Windows 10/11, VS Code, PowerShell, Python 3.12
 
 Open the extracted project folder in VS Code. Run all commands from that folder.

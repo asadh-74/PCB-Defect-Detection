@@ -1,6 +1,6 @@
 # Complete pasteable project files
 
-Each section gives the exact relative path and complete UTF-8 content. Empty placeholders and the unchanged binary COCO checkpoint are omitted. This generated listing excludes itself. See CHANGES.md for what changed and why.
+Current source and documentation. Each section gives the exact path and full UTF-8 content. Binary checkpoints/plots and machine-readable results are preserved as individual repository files. This listing excludes itself.
 
 ## `.github/workflows/tests.yml`
 
@@ -192,11 +192,83 @@ asserted byte-for-byte replacement for pycocotools. Border rejection may miss la
 NMS can retain cross-class duplicates. Tile exclusions and overlapping samples must be reported.
 Raw resume detection uses path/size/mtime; use --force after content changes that preserve those values.
 The app's timing/metrics do not certify a production inspection system.
+
+
+## Trained-artifact follow-up
+
+The user supplied `pcb_trained_artifacts.zip` after completing real Colab training and evaluation.
+The original pending/synthetic-only statements above describe the earlier source-only update; they
+are superseded by the recorded real run in `results/yolo_final/`.
+
+- `models/yolo_best.pt`: actual six-class checkpoint; checkpoint SHA256 verified against provenance.
+- `models/metrics_yolo.json` and `models/confusion_matrix_yolo.png`: matching app exports.
+- `models/README.md`: explain bundled checkpoint and CPU demo startup.
+- `README.md`: real test table, class scores, split membership and evidence links; demo no longer requires training.
+- `LOCAL_SETUP.md`, `DEPLOY.md`: add immediate demo instructions and preserve-model note before optional retraining.
+- `results/yolo_final/README.md`: supported analysis, protocol, size support, environment distinction and limitations.
+- All submitted `results/yolo_final/` files: retain original predictions, ground truth, metrics, manifests,
+  split tables, training history/settings, plots, error observations and error example images unchanged.
+- `FULL_FILE_CONTENTS.md`: regenerate current pasteable text; binary artifacts remain separate files.
+
+Validation: recomputed mAP50, mAP50:95, precision and recall from submitted predictions/ground truth;
+verified disjoint prefix groups, matching app metrics, 60 training-history rows, checkpoint hash,
+six-class loading and actual CPU inference on a blank image (execution check only). The recorded
+report numbers remain the original Tesla T4 test run; no CPU performance claim is substituted.
+
+Exact artifact paths added from the submitted ZIP:
+
+- `results/yolo_final/README.md`
+- `results/yolo_final/conf_sweep.png`
+- `results/yolo_final/confidence_sweep.json`
+- `results/yolo_final/confusion_matrix.png`
+- `results/yolo_final/error_context.json`
+- `results/yolo_final/error_examples/FN_05_short_06_1.jpg`
+- `results/yolo_final/error_examples/FN_05_spurious_copper_07_0.jpg`
+- `results/yolo_final/error_examples/FN_05_spurious_copper_07_2.jpg`
+- `results/yolo_final/error_examples/FN_05_spurious_copper_08_1.jpg`
+- `results/yolo_final/error_examples/FN_05_spurious_copper_09_0.jpg`
+- `results/yolo_final/error_examples/FN_05_spurious_copper_09_1.jpg`
+- `results/yolo_final/error_examples/FN_05_spurious_copper_10_0.jpg`
+- `results/yolo_final/error_examples/FN_05_spurious_copper_10_3.jpg`
+- `results/yolo_final/error_examples/FN_11_missing_hole_08_1.jpg`
+- `results/yolo_final/error_examples/FN_11_short_06_4.jpg`
+- `results/yolo_final/error_examples/FN_11_short_08_2.jpg`
+- `results/yolo_final/error_examples/FN_11_short_10_4.jpg`
+- `results/yolo_final/error_examples/FP_05_short_06_0.jpg`
+- `results/yolo_final/error_examples/FP_05_short_06_2.jpg`
+- `results/yolo_final/error_examples/FP_05_short_10_2.jpg`
+- `results/yolo_final/error_examples/FP_05_spur_10_4.jpg`
+- `results/yolo_final/error_examples/FP_11_missing_hole_03_2.jpg`
+- `results/yolo_final/error_examples/FP_11_missing_hole_05_4.jpg`
+- `results/yolo_final/error_examples/FP_11_missing_hole_08_2.jpg`
+- `results/yolo_final/error_examples/FP_11_open_circuit_02_1.jpg`
+- `results/yolo_final/error_examples/FP_11_short_06_2.jpg`
+- `results/yolo_final/error_examples/FP_11_short_07_0.jpg`
+- `results/yolo_final/error_examples/FP_11_short_08_0.jpg`
+- `results/yolo_final/error_examples/FP_11_spurious_copper_02_4.jpg`
+- `results/yolo_final/errors.csv`
+- `results/yolo_final/errors.json`
+- `results/yolo_final/ground_truth.json`
+- `results/yolo_final/manifest.json`
+- `results/yolo_final/metrics.json`
+- `results/yolo_final/per_class.csv`
+- `results/yolo_final/predictions.json`
+- `results/yolo_final/provenance.json`
+- `results/yolo_final/size_by_class.csv`
+- `results/yolo_final/splits.csv`
+- `results/yolo_final/stats.json`
+- `results/yolo_final/training_args.yaml`
+- `results/yolo_final/training_history.csv`
 ````
 
 ## `DEPLOY.md`
 
 ````markdown
+> A trained checkpoint is now bundled in `models/`. For the demo, install dependencies and run
+> `python -m streamlit run streamlit_app/app.py`; dataset download and training are optional.
+> The recorded test evidence is in `results/yolo_final/`. Back up the bundled `models/` before
+> running any training pipeline, because its export step replaces the demo model.
+
 # Demo setup and optional hosting
 
 First complete an actual PCB training/evaluation run. The app opens before training but does not
@@ -356,6 +428,11 @@ not asserted identical to the official COCO evaluator (which has additional conv
 ## `LOCAL_SETUP.md`
 
 ````markdown
+> A trained checkpoint is now bundled in `models/`. For the demo, install dependencies and run
+> `python -m streamlit run streamlit_app/app.py`; dataset download and training are optional.
+> The recorded test evidence is in `results/yolo_final/`. Back up the bundled `models/` before
+> running any training pipeline, because its export step replaces the demo model.
+
 # Windows 10/11, VS Code, PowerShell, Python 3.12
 
 Open the extracted project folder in VS Code. Run all commands from that folder.
@@ -520,11 +597,13 @@ Speaker notes:
 AI Bootcamp final project — Computer Vision track. Author: Asad Hussain.
 
 Detect six bare-PCB defect classes: `missing_hole`, `mouse_bite`, `open_circuit`, `short`, `spur`,
-`spurious_copper`, using COCO-pretrained YOLO with a Faster R-CNN baseline.
+`spurious_copper`, using a trained YOLOv8n detector. Faster R-CNN remains an optional comparison baseline.
 
-**Real PKU-Market-PCB training and final results are pending.** Software tests and synthetic smoke
-runs verify implementation, not detection accuracy. No trained PCB weights or invented metrics are
-bundled. A root `yolov8n.pt`, if present, is only a COCO starting checkpoint.
+**Trained checkpoint and real test results are included.** The bundled `models/yolo_best.pt`
+was evaluated on 120 held-out board images from two filename-prefix groups. mAP@0.5 is **94.74%**
+and mAP@0.5:0.95 is **46.15%**. These are detection metrics for this partition, not accuracy or
+production-line guarantees. The root `yolov8n.pt` is a COCO starting checkpoint; the app uses
+`models/yolo_best.pt`. Full evidence is in [results/yolo_final](results/yolo_final).
 
 ## Start here
 
@@ -539,12 +618,12 @@ Windows first setup:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\setup.ps1
-& ".\.venv\Scripts\python.exe" run_pipeline.py --profile quick --run-name smoke --skip-frcnn --raw "C:\PCB Data (Bootcamp)\PCB_DATASET"
 & ".\.venv\Scripts\python.exe" -m streamlit run streamlit_app/app.py
 ```
 
-The app can open before training; actual defect inference needs the trained checkpoint. Use a free
-GPU for the real runs. See LOCAL_SETUP.md before choosing a CUDA PyTorch installation.
+The bundled checkpoint runs on a CPU; no dataset download or retraining is required for the demo.
+Use a GPU for optional retraining. See LOCAL_SETUP.md before choosing a CUDA PyTorch installation.
+Running the training pipeline exports a new demo model, so back up `models/` first if you retrain.
 
 ## Dataset and split protocols
 
@@ -613,8 +692,47 @@ python -m src.export_for_app --model yolo --weights weights/yolo_best.pt --resul
 
 ## Results and error evidence
 
-**NOT RUN on the real dataset.** Use the results table template in EXPERIMENTS.md.
-After an actual run, `results/<run>_yolo/` contains:
+### Recorded test run: YOLOv8n, tiled input, board-grouped split
+
+| Metric | Result |
+|---|---:|
+| Test images / ground-truth defects | 120 / 562 |
+| mAP@0.5 | 94.74% |
+| mAP@0.5:0.95 | 46.15% |
+| Precision / recall | 96.03% / 94.66% |
+| Macro-F1 | 95.21% |
+| Validation-selected confidence | 0.60 |
+| True positives / false positives / false negatives | 532 / 22 / 30 |
+| Mean inference time per board on recorded Tesla T4 | 219.74 ms |
+
+Sources: [metrics.json](results/yolo_final/metrics.json), [per_class.csv](results/yolo_final/per_class.csv),
+[provenance.json](results/yolo_final/provenance.json). Timing includes sequential tiled inference and
+merging on already decoded images; it excludes image file reads and is not laptop CPU timing.
+
+Train prefixes: `01, 04, 07, 08, 09, 12`; validation: `06, 10`; test: `05, 11`.
+The saved source-image counts are 480 / 93 / 120 (693 total). Prefixes are disjoint; mapping them to
+physical template identities remains an assumption to verify. The training history records 60 epochs.
+An image-split comparison and controlled ablations have **not** been submitted; their table remains a plan.
+The one-epoch Faster R-CNN validation log is not a completed matched test comparison and is omitted here.
+
+| Class | AP50 | AP50:95 | Precision | Recall |
+|---|---:|---:|---:|---:|
+| missing_hole | 85.98% | 31.47% | 92.71% | 92.71% |
+| mouse_bite | 98.41% | 53.78% | 98.06% | 100.00% |
+| open_circuit | 99.34% | 54.88% | 97.65% | 100.00% |
+| short | 90.22% | 35.55% | 91.14% | 88.89% |
+| spur | 95.54% | 43.22% | 96.08% | 98.00% |
+| spurious_copper | 98.92% | 57.98% | 100.00% | 88.12% |
+
+The stricter-overlap AP is substantially lower; inspect localization errors rather than interpreting
+mAP50 as box precision. This test set has no annotated boxes below 32 pixels in sqrt(area), so it
+provides no measured recall for those size buckets. All test images contain annotated defects;
+clean-board specificity is not established. See the [recorded analysis](results/yolo_final/README.md).
+
+![Test confusion matrix](results/yolo_final/confusion_matrix.png)
+
+The saved run contains these evidence files (manual training used `training_args.yaml`, not the
+pipeline's `training_config.json`):
 
 | Artifact | Purpose |
 |---|---|
@@ -627,7 +745,7 @@ After an actual run, `results/<run>_yolo/` contains:
 | error_examples/ | Real error illustrations with unique filenames |
 | predictions.json / ground_truth.json | Inputs to reproduce reported scorer results |
 | stats.json / splits.csv / manifest.json | Dataset statistics, membership and source hashes |
-| training_config.json / training_history.csv | Actual training settings and completed epochs |
+| training_args.yaml / training_history.csv | Submitted run settings and completed epochs |
 | provenance.json | Environment, hardware, source and checkpoint hashes |
 
 Board-mode errors do not identify contributing tiles. Use the additional tile diagnostic command in
@@ -653,8 +771,8 @@ is not statistical validation. Free GPU availability/runtime varies.
 
 Ultralytics is pinned to the version exercised during this review; capture the actual full dependency
 environment for your real run. Setup was exercised on Linux Python 3.12; run the provided Windows CI
-and local setup to verify PowerShell/driver behavior on your machine. No real dataset or GPU result
-is claimed by the repository until its corresponding results files are produced.
+and local setup to verify PowerShell/driver behavior on your machine. The submitted result is backed by saved predictions, ground truth and provenance;
+other experiments remain unrun until their own evidence is produced.
 ````
 
 ## `REPORT_SKELETON.md`
@@ -836,12 +954,132 @@ screenshots; source, tests, limitations and demo instructions included.
 ## `models/README.md`
 
 ````markdown
-Put the exported weights here (created by `python -m src.export_for_app`):
+# Trained PCB demo model
 
-- yolo_best.pt (about 22 MB for yolov8s, fine for GitHub)
-- metrics_yolo.json, confusion_matrix_yolo.png (shown on the app's "About" tab)
+`yolo_best.pt` is the submitted six-class PCB checkpoint, not the COCO starting model.
+The exported `metrics_yolo.json` and `confusion_matrix_yolo.png` correspond to the full-board
+held-out test run in `results/yolo_final/`.
 
-Commit this folder so Streamlit Community Cloud can load the model.
+Checkpoint SHA256: `eccc897d54cee32aa27ac2b7b59cd35e0db1764ae0cff772980088895b1e3cc8`.
+
+Run `python -m streamlit run streamlit_app/app.py` after installation. CPU inference is supported;
+no training or dataset download is required to start the demo. No hosted app is deployed by this update.
+````
+
+## `models/metrics_yolo.json`
+
+````json
+{
+  "tile": 640,
+  "stride": 480,
+  "evaluation_unit": "board",
+  "split_mode": "board",
+  "representation": "tiled",
+  "subset_evaluation": false,
+  "threshold_source": "validation",
+  "size_definition": "sqrt(box area) in original board pixels",
+  "n_images": 120,
+  "ms_per_image": 219.74270589166355,
+  "name": "yolo_final",
+  "model": "YOLO",
+  "split": "test",
+  "conf": 0.6000000000000001,
+  "n_tiles": 120,
+  "n_gt": 562,
+  "map50": 0.9473501714192588,
+  "map50_95": 0.4614766542046836,
+  "precision": 0.9602888086642599,
+  "recall": 0.9466192170818505,
+  "f1_macro": 0.9520856308043454,
+  "per_class_ap50": {
+    "missing_hole": 0.8598039749029849,
+    "mouse_bite": 0.9841090615364968,
+    "open_circuit": 0.9934232337260872,
+    "short": 0.9021771717632708,
+    "spur": 0.9553606095903706,
+    "spurious_copper": 0.9892269769963422
+  },
+  "size_recall": {
+    "<16px": null,
+    "16-32px": null,
+    "32-64px": 1.0,
+    ">=64px": 0.9222797927461139
+  },
+  "size_counts": {
+    "<16px": 0,
+    "16-32px": 0,
+    "32-64px": 176,
+    ">=64px": 386
+  },
+  "confusion": [
+    [
+      89,
+      0,
+      0,
+      0,
+      0,
+      0,
+      7
+    ],
+    [
+      0,
+      101,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      83,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      72,
+      1,
+      0,
+      8
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      98,
+      0,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      1,
+      89,
+      11
+    ],
+    [
+      7,
+      2,
+      2,
+      7,
+      2,
+      0,
+      0
+    ]
+  ],
+  "ms_per_tile": 219.74270589166355,
+  "fps": 4.550776763862255,
+  "n_params": 3139218
+}
 ````
 
 ## `notebooks/colab_run.ipynb`
@@ -1010,6 +1248,61 @@ pytest>=7.0
 kagglehub>=0.3
 huggingface_hub>=0.23
 streamlit>=1.40,<2
+````
+
+## `results/yolo_final/README.md`
+
+````markdown
+# Recorded YOLO test evaluation
+
+This folder is the user's actual Colab evaluation export, not a synthetic smoke test.
+The checkpoint used is bundled at `models/yolo_best.pt`; its SHA256 matches `provenance.json`.
+The app's exported metrics match `metrics.json`. Ground-truth and prediction files independently
+reproduce the reported mAP, precision and recall using this repository's numpy scorer.
+
+## Protocol and outcome
+
+- Evaluation unit: original full board; tiled prediction with coordinate merging and class-aware NMS.
+- Source split: board-prefix groups, seed 42. Train: 01/04/07/08/09/12; val: 06/10; test: 05/11.
+- Source images: 480 train, 93 validation, 120 test. Prefix-to-physical-template mapping is not independently verified.
+- Test ground-truth defects: 562. Operating confidence: 0.60, selected on validation macro-F1.
+- mAP50: 0.9473501714192588; mAP50:95: 0.4614766542046836.
+- Precision: 0.9602888086642599; recall: 0.9466192170818505; macro-F1: 0.9520856308043454.
+- Class-aware counts: 532 true positives, 22 false positives, 30 false negatives.
+- Mean board inference time: 219.74270589166355 ms on the recorded Tesla T4; CPU time is not measured here.
+
+## Supported error observations
+
+`per_class.csv` shows missing_hole has the lowest AP50 (0.859804) and short the lowest F1 (0.900000).
+Spurious copper has 12 misses and no false positives at this threshold. Mouse bite and open circuit
+have recall 1.0 on this test set, each with two false positives; this is not a claim of perfect generalization.
+The class-agnostic confusion matrix has one short-to-spur match and one spurious-copper-to-spur match.
+Its matching pass differs from the class-aware FP/FN calculation; do not sum them interchangeably.
+
+`size_by_class.csv` and metrics.json show 176 ground-truth boxes in the 32–64 pixel sqrt(area) bucket
+with recall 1.0, and 386 boxes in the >=64 bucket with recall 0.9222797927461139. There are no boxes
+below 32 pixels in this test set, so recall in those buckets is undefined, not zero. All 30 class-aware
+misses fall in the >=64 bucket. Size is measured in original board coordinates, not resized inputs.
+
+All 120 evaluated images contain ground-truth defects. Clean-board false-positive performance and
+specificity are not measured. The observed 22 false detections correspond to 0.18333333333333332 FP
+per evaluated defect-containing board. This rate must not be described as a clean-board false-alarm rate.
+Board-mode errors have no contributing tile coordinates; separate tile diagnostics are still needed
+to attribute errors to tile contexts. Example selection is sampled by the evaluator; images are illustrative.
+
+## Reproducibility and limits
+
+`training_args.yaml` and `training_history.csv` are the original submitted run files. The history has
+60 rows. Training was resumed from a Drive checkpoint; the saved YAML describes the resumed settings,
+not a complete audit of every earlier training invocation. The pasted training log identified Ultralytics
+8.4.182, while evaluation provenance records 8.4.181. Retain that distinction rather than claiming an
+identical training/evaluation environment. The model loads using the repository's pinned evaluation version.
+
+No dataset was included in this archive. Original image hashes, annotations aggregate hash and membership
+are retained in manifest.json; full image-based reruns require obtaining that same dataset and restoring
+its recorded split. This is one partition of one dataset; no production-line, multi-seed, image-split,
+augmentation-ablation or full-image-ablation result is claimed. The shared scorer is COCO-style, not the
+complete official COCO evaluator. Do not tune on this test result and then call the same test independent.
 ````
 
 ## `run_pipeline.py`

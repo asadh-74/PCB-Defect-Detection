@@ -1,0 +1,38 @@
+{
+  "python": "3.13.15",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "packages": {
+    "numpy": "2.1.3",
+    "torch": "2.11.0+cu130",
+    "torchvision": "0.26.0+cu130",
+    "ultralytics": "8.4.181",
+    "opencv-python-headless": "5.0.0.93",
+    "streamlit": "not installed",
+    "albumentations": "2.0.8"
+  },
+  "source_sha256": {
+    "train_frcnn.py": "460b6faf95b68bb740d1dd112ae629b2a09f4656d4eaa883da5e3d8f2ce8ce15",
+    "common.py": "e35c6cc1f2b497c775fbba57749a5399ba356926e203c47de700ba3700698217",
+    "download_data.py": "0e0e7b9648a050400052069a398103e04a662d2a08260b33be5f6896491aa500",
+    "metrics.py": "e9af4bcaf25089407d2d892f3fe63c1bd3f80fb9bca91e3fdf340ed672e8f699",
+    "train_yolo.py": "84ff1fc3983e93ed155607494e946eaccaa36d57efc7ab86cdbc205496e5926f",
+    "compare.py": "5c5a375081b98f7a284d6df4590f526a8a0cc069cdac05e2c6fbae32a391b75e",
+    "prepare_data.py": "da320c6cb61aff126a134e9d656d00d1905eb87002bd553008ddad33c1b99b1d",
+    "predictors.py": "2082384b9b0b808285168c96d86b6fbf26d54ca2c2810414c99485bdf12ff5d0",
+    "infer.py": "7333cbd2c53a3ce2a077072dac8954c7ccab9a0f6e32f157e3a7ff2e6fb225b2",
+    "export_for_app.py": "3f06f97e99c3222dc2a11c574e94d13bc52a8fca6216fd2717a4b1dd7068fe7d",
+    "frcnn.py": "f9fa8627a7e19112c4e0162933a1a858c4967a9f11979ee63a5ceb90a3aea4a5",
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app_logic.py": "11dd85524f2cba550ad41e47b6c4f1a5fc35beefcbc629bcdbd67b7ff92ba260",
+    "evaluate.py": "7ac42cf9c951564abf8da33c679d677c3ca5f638382d1db83715a8bc2c3b023d"
+  },
+  "weights_sha256": "eccc897d54cee32aa27ac2b7b59cd35e0db1764ae0cff772980088895b1e3cc8",
+  "hardware": {
+    "cuda_available": true,
+    "gpus": [
+      "Tesla T4"
+    ],
+    "cpu": "x86_64",
+    "predictor_device": "0"
+  }
+}

@@ -1,0 +1,1042 @@
+[
+  {
+    "kind": "FN",
+    "image": "05_short_04.jpg",
+    "source_image": "05_short_04",
+    "board_id": "05",
+    "class": "short",
+    "score": null,
+    "box": [
+      1380.0,
+      1512.0,
+      1449.0,
+      1584.0
+    ],
+    "size_sqrt_area_px": 70.48403930664062,
+    "edge_distance_px": 572.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "05_short_06.jpg",
+    "source_image": "05_short_06",
+    "board_id": "05",
+    "class": "short",
+    "score": null,
+    "box": [
+      1999.0,
+      874.0,
+      2080.0,
+      943.0
+    ],
+    "size_sqrt_area_px": 74.75961303710938,
+    "edge_distance_px": 464.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "05_short_06.jpg",
+    "source_image": "05_short_06",
+    "board_id": "05",
+    "class": "short",
+    "score": null,
+    "box": [
+      1981.0,
+      356.0,
+      2056.0,
+      423.0
+    ],
+    "size_sqrt_area_px": 70.88723754882812,
+    "edge_distance_px": 356.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "05_short_09.jpg",
+    "source_image": "05_short_09",
+    "board_id": "05",
+    "class": "short",
+    "score": null,
+    "box": [
+      1670.0,
+      1307.0,
+      1763.0,
+      1396.0
+    ],
+    "size_sqrt_area_px": 90.97801971435547,
+    "edge_distance_px": 760.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "05_spur_04.jpg",
+    "source_image": "05_spur_04",
+    "board_id": "05",
+    "class": "spur",
+    "score": null,
+    "box": [
+      1564.0,
+      1092.0,
+      1655.0,
+      1178.0
+    ],
+    "size_sqrt_area_px": 88.46468353271484,
+    "edge_distance_px": 889.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "05_spur_08.jpg",
+    "source_image": "05_spur_08",
+    "board_id": "05",
+    "class": "spur",
+    "score": null,
+    "box": [
+      1924.0,
+      1362.0,
+      2017.0,
+      1417.0
+    ],
+    "size_sqrt_area_px": 71.51922607421875,
+    "edge_distance_px": 527.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "05_spurious_copper_05.jpg",
+    "source_image": "05_spurious_copper_05",
+    "board_id": "05",
+    "class": "spurious_copper",
+    "score": null,
+    "box": [
+      1810.0,
+      1354.0,
+      2010.0,
+      1406.0
+    ],
+    "size_sqrt_area_px": 101.98039245605469,
+    "edge_distance_px": 534.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "05_spurious_copper_06.jpg",
+    "source_image": "05_spurious_copper_06",
+    "board_id": "05",
+    "class": "spurious_copper",
+    "score": null,
+    "box": [
+      1810.0,
+      1345.0,
+      1977.0,
+      1401.0
+    ],
+    "size_sqrt_area_px": 96.70574188232422,
+    "edge_distance_px": 567.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "05_spurious_copper_07.jpg",
+    "source_image": "05_spurious_copper_07",
+    "board_id": "05",
+    "class": "spurious_copper",
+    "score": null,
+    "box": [
+      555.0,
+      662.0,
+      789.0,
+      706.0
+    ],
+    "size_sqrt_area_px": 101.46920776367188,
+    "edge_distance_px": 555.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "05_spurious_copper_07.jpg",
+    "source_image": "05_spurious_copper_07",
+    "board_id": "05",
+    "class": "spurious_copper",
+    "score": null,
+    "box": [
+      1803.0,
+      878.0,
+      1853.0,
+      1029.0
+    ],
+    "size_sqrt_area_px": 86.89073944091797,
+    "edge_distance_px": 691.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "05_spurious_copper_07.jpg",
+    "source_image": "05_spurious_copper_07",
+    "board_id": "05",
+    "class": "spurious_copper",
+    "score": null,
+    "box": [
+      1319.0,
+      1229.0,
+      1370.0,
+      1392.0
+    ],
+    "size_sqrt_area_px": 91.17565155029297,
+    "edge_distance_px": 764.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "05_spurious_copper_08.jpg",
+    "source_image": "05_spurious_copper_08",
+    "board_id": "05",
+    "class": "spurious_copper",
+    "score": null,
+    "box": [
+      1835.0,
+      1309.0,
+      1983.0,
+      1349.0
+    ],
+    "size_sqrt_area_px": 76.94153594970703,
+    "edge_distance_px": 561.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "05_spurious_copper_09.jpg",
+    "source_image": "05_spurious_copper_09",
+    "board_id": "05",
+    "class": "spurious_copper",
+    "score": null,
+    "box": [
+      1145.0,
+      370.0,
+      1186.0,
+      504.0
+    ],
+    "size_sqrt_area_px": 74.12152099609375,
+    "edge_distance_px": 370.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "05_spurious_copper_09.jpg",
+    "source_image": "05_spurious_copper_09",
+    "board_id": "05",
+    "class": "spurious_copper",
+    "score": null,
+    "box": [
+      1720.0,
+      1460.0,
+      1888.0,
+      1499.0
+    ],
+    "size_sqrt_area_px": 80.94442749023438,
+    "edge_distance_px": 656.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "05_spurious_copper_09.jpg",
+    "source_image": "05_spurious_copper_09",
+    "board_id": "05",
+    "class": "spurious_copper",
+    "score": null,
+    "box": [
+      1883.0,
+      1532.0,
+      2089.0,
+      1576.0
+    ],
+    "size_sqrt_area_px": 95.20503997802734,
+    "edge_distance_px": 455.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "05_spurious_copper_10.jpg",
+    "source_image": "05_spurious_copper_10",
+    "board_id": "05",
+    "class": "spurious_copper",
+    "score": null,
+    "box": [
+      641.0,
+      315.0,
+      861.0,
+      368.0
+    ],
+    "size_sqrt_area_px": 107.98148345947266,
+    "edge_distance_px": 315.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "05_spurious_copper_10.jpg",
+    "source_image": "05_spurious_copper_10",
+    "board_id": "05",
+    "class": "spurious_copper",
+    "score": null,
+    "box": [
+      1530.0,
+      1078.0,
+      1653.0,
+      1201.0
+    ],
+    "size_sqrt_area_px": 123.0,
+    "edge_distance_px": 891.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "11_missing_hole_03.jpg",
+    "source_image": "11_missing_hole_03",
+    "board_id": "11",
+    "class": "missing_hole",
+    "score": null,
+    "box": [
+      717.0,
+      970.0,
+      778.0,
+      1044.0
+    ],
+    "size_sqrt_area_px": 67.18630981445312,
+    "edge_distance_px": 717.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "11_missing_hole_04.jpg",
+    "source_image": "11_missing_hole_04",
+    "board_id": "11",
+    "class": "missing_hole",
+    "score": null,
+    "box": [
+      411.0,
+      747.0,
+      476.0,
+      813.0
+    ],
+    "size_sqrt_area_px": 65.49809265136719,
+    "edge_distance_px": 411.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "11_missing_hole_05.jpg",
+    "source_image": "11_missing_hole_05",
+    "board_id": "11",
+    "class": "missing_hole",
+    "score": null,
+    "box": [
+      2022.0,
+      1806.0,
+      2122.0,
+      1899.0
+    ],
+    "size_sqrt_area_px": 96.43650817871094,
+    "edge_distance_px": 160.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "11_missing_hole_05.jpg",
+    "source_image": "11_missing_hole_05",
+    "board_id": "11",
+    "class": "missing_hole",
+    "score": null,
+    "box": [
+      1145.0,
+      1868.0,
+      1217.0,
+      1952.0
+    ],
+    "size_sqrt_area_px": 77.76889038085938,
+    "edge_distance_px": 296.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "11_missing_hole_08.jpg",
+    "source_image": "11_missing_hole_08",
+    "board_id": "11",
+    "class": "missing_hole",
+    "score": null,
+    "box": [
+      1317.0,
+      1542.0,
+      1380.0,
+      1617.0
+    ],
+    "size_sqrt_area_px": 68.73863220214844,
+    "edge_distance_px": 631.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "11_missing_hole_08.jpg",
+    "source_image": "11_missing_hole_08",
+    "board_id": "11",
+    "class": "missing_hole",
+    "score": null,
+    "box": [
+      1129.0,
+      1283.0,
+      1193.0,
+      1353.0
+    ],
+    "size_sqrt_area_px": 66.93280029296875,
+    "edge_distance_px": 895.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "11_missing_hole_08.jpg",
+    "source_image": "11_missing_hole_08",
+    "board_id": "11",
+    "class": "missing_hole",
+    "score": null,
+    "box": [
+      722.0,
+      967.0,
+      786.0,
+      1047.0
+    ],
+    "size_sqrt_area_px": 71.5541763305664,
+    "edge_distance_px": 722.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "11_short_06.jpg",
+    "source_image": "11_short_06",
+    "board_id": "11",
+    "class": "short",
+    "score": null,
+    "box": [
+      1045.0,
+      1345.0,
+      1124.0,
+      1417.0
+    ],
+    "size_sqrt_area_px": 75.41883087158203,
+    "edge_distance_px": 831.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "11_short_07.jpg",
+    "source_image": "11_short_07",
+    "board_id": "11",
+    "class": "short",
+    "score": null,
+    "box": [
+      966.0,
+      313.0,
+      1075.0,
+      372.0
+    ],
+    "size_sqrt_area_px": 80.19351959228516,
+    "edge_distance_px": 313.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "11_short_08.jpg",
+    "source_image": "11_short_08",
+    "board_id": "11",
+    "class": "short",
+    "score": null,
+    "box": [
+      1072.0,
+      1403.0,
+      1199.0,
+      1450.0
+    ],
+    "size_sqrt_area_px": 77.2593002319336,
+    "edge_distance_px": 798.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "11_short_08.jpg",
+    "source_image": "11_short_08",
+    "board_id": "11",
+    "class": "short",
+    "score": null,
+    "box": [
+      430.0,
+      1398.0,
+      578.0,
+      1457.0
+    ],
+    "size_sqrt_area_px": 93.4451675415039,
+    "edge_distance_px": 430.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "11_short_10.jpg",
+    "source_image": "11_short_10",
+    "board_id": "11",
+    "class": "short",
+    "score": null,
+    "box": [
+      540.0,
+      1934.0,
+      655.0,
+      2053.0
+    ],
+    "size_sqrt_area_px": 116.98290252685547,
+    "edge_distance_px": 195.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FN",
+    "image": "11_spurious_copper_02.jpg",
+    "source_image": "11_spurious_copper_02",
+    "board_id": "11",
+    "class": "spurious_copper",
+    "score": null,
+    "box": [
+      1411.0,
+      1606.0,
+      1458.0,
+      1699.0
+    ],
+    "size_sqrt_area_px": 66.11354064941406,
+    "edge_distance_px": 549.0,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "05_mouse_bite_06.jpg",
+    "source_image": "05_mouse_bite_06",
+    "board_id": "05",
+    "class": "mouse_bite",
+    "score": 0.8179033398628235,
+    "box": [
+      2129.3125,
+      1176.92919921875,
+      2194.968505859375,
+      1228.6031494140625
+    ],
+    "size_sqrt_area_px": 58.24693298339844,
+    "edge_distance_px": 349.031494140625,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "05_mouse_bite_08.jpg",
+    "source_image": "05_mouse_bite_08",
+    "board_id": "05",
+    "class": "mouse_bite",
+    "score": 0.7501064538955688,
+    "box": [
+      2349.62060546875,
+      1459.1756591796875,
+      2417.299072265625,
+      1502.162109375
+    ],
+    "size_sqrt_area_px": 53.937530517578125,
+    "edge_distance_px": 126.700927734375,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "05_open_circuit_04.jpg",
+    "source_image": "05_open_circuit_04",
+    "board_id": "05",
+    "class": "open_circuit",
+    "score": 0.7650711536407471,
+    "box": [
+      2203.14404296875,
+      1472.23876953125,
+      2259.46044921875,
+      1514.510009765625
+    ],
+    "size_sqrt_area_px": 48.7910270690918,
+    "edge_distance_px": 284.53955078125,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "05_short_06.jpg",
+    "source_image": "05_short_06",
+    "board_id": "05",
+    "class": "short",
+    "score": 0.7397763133049011,
+    "box": [
+      1957.9530029296875,
+      324.33880615234375,
+      2079.37841796875,
+      445.602294921875
+    ],
+    "size_sqrt_area_px": 121.34442901611328,
+    "edge_distance_px": 324.33880615234375,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "05_short_06.jpg",
+    "source_image": "05_short_06",
+    "board_id": "05",
+    "class": "short",
+    "score": 0.6460538506507874,
+    "box": [
+      1981.145263671875,
+      841.3284912109375,
+      2093.961669921875,
+      962.76318359375
+    ],
+    "size_sqrt_area_px": 117.04624938964844,
+    "edge_distance_px": 450.038330078125,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "05_short_09.jpg",
+    "source_image": "05_short_09",
+    "board_id": "05",
+    "class": "spur",
+    "score": 0.743001401424408,
+    "box": [
+      1674.71142578125,
+      1308.3291015625,
+      1751.10986328125,
+      1391.217041015625
+    ],
+    "size_sqrt_area_px": 79.57706451416016,
+    "edge_distance_px": 764.782958984375,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "05_short_10.jpg",
+    "source_image": "05_short_10",
+    "board_id": "05",
+    "class": "short",
+    "score": 0.6432492136955261,
+    "box": [
+      1296.533935546875,
+      1692.8365478515625,
+      1379.699951171875,
+      1769.606689453125
+    ],
+    "size_sqrt_area_px": 79.90411376953125,
+    "edge_distance_px": 386.393310546875,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "05_spur_07.jpg",
+    "source_image": "05_spur_07",
+    "board_id": "05",
+    "class": "spur",
+    "score": 0.7393512725830078,
+    "box": [
+      1938.4468994140625,
+      1793.733642578125,
+      1983.9208984375,
+      1869.027587890625
+    ],
+    "size_sqrt_area_px": 58.514244079589844,
+    "edge_distance_px": 286.972412109375,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "05_spur_10.jpg",
+    "source_image": "05_spur_10",
+    "board_id": "05",
+    "class": "spur",
+    "score": 0.71746426820755,
+    "box": [
+      649.4560546875,
+      1352.235595703125,
+      736.7286376953125,
+      1400.1549072265625
+    ],
+    "size_sqrt_area_px": 64.66870880126953,
+    "edge_distance_px": 649.4560546875,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "11_missing_hole_03.jpg",
+    "source_image": "11_missing_hole_03",
+    "board_id": "11",
+    "class": "missing_hole",
+    "score": 0.9001701474189758,
+    "box": [
+      701.8281860351562,
+      944.1377563476562,
+      801.7109985351562,
+      1061.4921875
+    ],
+    "size_sqrt_area_px": 108.26675415039062,
+    "edge_distance_px": 701.8281860351562,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "11_missing_hole_04.jpg",
+    "source_image": "11_missing_hole_04",
+    "board_id": "11",
+    "class": "missing_hole",
+    "score": 0.8350669145584106,
+    "box": [
+      398.7901306152344,
+      729.8311767578125,
+      491.4356994628906,
+      827.9908447265625
+    ],
+    "size_sqrt_area_px": 95.3627700805664,
+    "edge_distance_px": 398.7901306152344,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "11_missing_hole_05.jpg",
+    "source_image": "11_missing_hole_05",
+    "board_id": "11",
+    "class": "missing_hole",
+    "score": 0.7982087731361389,
+    "box": [
+      1124.2918701171875,
+      1842.6077880859375,
+      1233.0819091796875,
+      1965.4554443359375
+    ],
+    "size_sqrt_area_px": 115.6053695678711,
+    "edge_distance_px": 282.5445556640625,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "11_missing_hole_05.jpg",
+    "source_image": "11_missing_hole_05",
+    "board_id": "11",
+    "class": "missing_hole",
+    "score": 0.7608771324157715,
+    "box": [
+      1981.530517578125,
+      1777.7421875,
+      2164.602294921875,
+      1925.466552734375
+    ],
+    "size_sqrt_area_px": 164.4510955810547,
+    "edge_distance_px": 117.397705078125,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "11_missing_hole_08.jpg",
+    "source_image": "11_missing_hole_08",
+    "board_id": "11",
+    "class": "missing_hole",
+    "score": 0.8731599450111389,
+    "box": [
+      703.2057495117188,
+      946.3506469726562,
+      800.1253051757812,
+      1060.148681640625
+    ],
+    "size_sqrt_area_px": 105.02025604248047,
+    "edge_distance_px": 703.2057495117188,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "11_missing_hole_08.jpg",
+    "source_image": "11_missing_hole_08",
+    "board_id": "11",
+    "class": "missing_hole",
+    "score": 0.8476207852363586,
+    "box": [
+      1116.57861328125,
+      1258.15869140625,
+      1208.312744140625,
+      1369.492431640625
+    ],
+    "size_sqrt_area_px": 101.05989837646484,
+    "edge_distance_px": 878.507568359375,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "11_missing_hole_08.jpg",
+    "source_image": "11_missing_hole_08",
+    "board_id": "11",
+    "class": "missing_hole",
+    "score": 0.8574973940849304,
+    "box": [
+      1298.12744140625,
+      1522.4073486328125,
+      1394.84326171875,
+      1633.5460205078125
+    ],
+    "size_sqrt_area_px": 103.67675018310547,
+    "edge_distance_px": 614.4539794921875,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "11_open_circuit_02.jpg",
+    "source_image": "11_open_circuit_02",
+    "board_id": "11",
+    "class": "open_circuit",
+    "score": 0.7774328589439392,
+    "box": [
+      305.518310546875,
+      538.3519897460938,
+      381.9765625,
+      615.1784057617188
+    ],
+    "size_sqrt_area_px": 76.6421127319336,
+    "edge_distance_px": 305.518310546875,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "11_short_06.jpg",
+    "source_image": "11_short_06",
+    "board_id": "11",
+    "class": "short",
+    "score": 0.7220640778541565,
+    "box": [
+      1026.7686767578125,
+      1327.2933349609375,
+      1140.14404296875,
+      1438.3648681640625
+    ],
+    "size_sqrt_area_px": 112.21753692626953,
+    "edge_distance_px": 809.6351318359375,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "11_short_07.jpg",
+    "source_image": "11_short_07",
+    "board_id": "11",
+    "class": "short",
+    "score": 0.6776638031005859,
+    "box": [
+      969.3140258789062,
+      287.02783203125,
+      1085.6964111328125,
+      399.130615234375
+    ],
+    "size_sqrt_area_px": 114.22254180908203,
+    "edge_distance_px": 287.02783203125,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "11_short_08.jpg",
+    "source_image": "11_short_08",
+    "board_id": "11",
+    "class": "short",
+    "score": 0.7585724592208862,
+    "box": [
+      435.40185546875,
+      1365.0487060546875,
+      579.3030395507812,
+      1489.208984375
+    ],
+    "size_sqrt_area_px": 133.6667938232422,
+    "edge_distance_px": 435.40185546875,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "11_short_08.jpg",
+    "source_image": "11_short_08",
+    "board_id": "11",
+    "class": "short",
+    "score": 0.7363056540489197,
+    "box": [
+      1087.6202392578125,
+      1384.375,
+      1190.168212890625,
+      1470.714599609375
+    ],
+    "size_sqrt_area_px": 94.0954360961914,
+    "edge_distance_px": 777.285400390625,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  },
+  {
+    "kind": "FP",
+    "image": "11_spurious_copper_02.jpg",
+    "source_image": "11_spurious_copper_02",
+    "board_id": "11",
+    "class": "spur",
+    "score": 0.6476324200630188,
+    "box": [
+      1407.4375,
+      1598.4512939453125,
+      1467.7188720703125,
+      1698.4124755859375
+    ],
+    "size_sqrt_area_px": 77.62600708007812,
+    "edge_distance_px": 549.5875244140625,
+    "near_edge_16px": false,
+    "tile_x": null,
+    "tile_y": null,
+    "context": "contains_gt"
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "unit": "board",
+  "contexts": {
+    "clean": {
+      "n_images": 0,
+      "fp_count": 0,
+      "fp_per_image": null
+    },
+    "contains_gt": {
+      "n_images": 120,
+      "fp_count": 22,
+      "fp_per_image": 0.18333333333333332
+    }
+  },
+  "note": "Near-edge counts describe error locations, not a causal error rate. Inspect crops to label visual causes."
+}

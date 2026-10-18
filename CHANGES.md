@@ -66,3 +66,70 @@ asserted byte-for-byte replacement for pycocotools. Border rejection may miss la
 NMS can retain cross-class duplicates. Tile exclusions and overlapping samples must be reported.
 Raw resume detection uses path/size/mtime; use --force after content changes that preserve those values.
 The app's timing/metrics do not certify a production inspection system.
+
+
+## Trained-artifact follow-up
+
+The user supplied `pcb_trained_artifacts.zip` after completing real Colab training and evaluation.
+The original pending/synthetic-only statements above describe the earlier source-only update; they
+are superseded by the recorded real run in `results/yolo_final/`.
+
+- `models/yolo_best.pt`: actual six-class checkpoint; checkpoint SHA256 verified against provenance.
+- `models/metrics_yolo.json` and `models/confusion_matrix_yolo.png`: matching app exports.
+- `models/README.md`: explain bundled checkpoint and CPU demo startup.
+- `README.md`: real test table, class scores, split membership and evidence links; demo no longer requires training.
+- `LOCAL_SETUP.md`, `DEPLOY.md`: add immediate demo instructions and preserve-model note before optional retraining.
+- `results/yolo_final/README.md`: supported analysis, protocol, size support, environment distinction and limitations.
+- All submitted `results/yolo_final/` files: retain original predictions, ground truth, metrics, manifests,
+  split tables, training history/settings, plots, error observations and error example images unchanged.
+- `FULL_FILE_CONTENTS.md`: regenerate current pasteable text; binary artifacts remain separate files.
+
+Validation: recomputed mAP50, mAP50:95, precision and recall from submitted predictions/ground truth;
+verified disjoint prefix groups, matching app metrics, 60 training-history rows, checkpoint hash,
+six-class loading and actual CPU inference on a blank image (execution check only). The recorded
+report numbers remain the original Tesla T4 test run; no CPU performance claim is substituted.
+
+Exact artifact paths added from the submitted ZIP:
+
+- `results/yolo_final/README.md`
+- `results/yolo_final/conf_sweep.png`
+- `results/yolo_final/confidence_sweep.json`
+- `results/yolo_final/confusion_matrix.png`
+- `results/yolo_final/error_context.json`
+- `results/yolo_final/error_examples/FN_05_short_06_1.jpg`
+- `results/yolo_final/error_examples/FN_05_spurious_copper_07_0.jpg`
+- `results/yolo_final/error_examples/FN_05_spurious_copper_07_2.jpg`
+- `results/yolo_final/error_examples/FN_05_spurious_copper_08_1.jpg`
+- `results/yolo_final/error_examples/FN_05_spurious_copper_09_0.jpg`
+- `results/yolo_final/error_examples/FN_05_spurious_copper_09_1.jpg`
+- `results/yolo_final/error_examples/FN_05_spurious_copper_10_0.jpg`
+- `results/yolo_final/error_examples/FN_05_spurious_copper_10_3.jpg`
+- `results/yolo_final/error_examples/FN_11_missing_hole_08_1.jpg`
+- `results/yolo_final/error_examples/FN_11_short_06_4.jpg`
+- `results/yolo_final/error_examples/FN_11_short_08_2.jpg`
+- `results/yolo_final/error_examples/FN_11_short_10_4.jpg`
+- `results/yolo_final/error_examples/FP_05_short_06_0.jpg`
+- `results/yolo_final/error_examples/FP_05_short_06_2.jpg`
+- `results/yolo_final/error_examples/FP_05_short_10_2.jpg`
+- `results/yolo_final/error_examples/FP_05_spur_10_4.jpg`
+- `results/yolo_final/error_examples/FP_11_missing_hole_03_2.jpg`
+- `results/yolo_final/error_examples/FP_11_missing_hole_05_4.jpg`
+- `results/yolo_final/error_examples/FP_11_missing_hole_08_2.jpg`
+- `results/yolo_final/error_examples/FP_11_open_circuit_02_1.jpg`
+- `results/yolo_final/error_examples/FP_11_short_06_2.jpg`
+- `results/yolo_final/error_examples/FP_11_short_07_0.jpg`
+- `results/yolo_final/error_examples/FP_11_short_08_0.jpg`
+- `results/yolo_final/error_examples/FP_11_spurious_copper_02_4.jpg`
+- `results/yolo_final/errors.csv`
+- `results/yolo_final/errors.json`
+- `results/yolo_final/ground_truth.json`
+- `results/yolo_final/manifest.json`
+- `results/yolo_final/metrics.json`
+- `results/yolo_final/per_class.csv`
+- `results/yolo_final/predictions.json`
+- `results/yolo_final/provenance.json`
+- `results/yolo_final/size_by_class.csv`
+- `results/yolo_final/splits.csv`
+- `results/yolo_final/stats.json`
+- `results/yolo_final/training_args.yaml`
+- `results/yolo_final/training_history.csv`
