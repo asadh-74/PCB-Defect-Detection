@@ -65,3 +65,11 @@ those changes intentionally. The normal pipeline export replaces the local `mode
 
 A repository update alone is not a completed deployment. Verify an actual hosted URL and inference
 before claiming the app is live. No public hosted URL is recorded until that verification succeeds.
+
+## Render CPU web demo
+
+Render can host the standalone `webapp.main:app` dashboard using Python 3.12. Build: `bash scripts/build-render.sh`. Start: `uvicorn webapp.main:app --host 0.0.0.0 --port $PORT --workers 1`.
+
+The build exports the **bundled** trained YOLO checkpoint to ONNX in an isolated export environment. The serving process uses ONNX Runtime without loading PyTorch, reducing memory usage. The Streamlit app and training pipeline are unchanged. Runtime accepts only board images, not executable model uploads. One scan runs at a time, with 8 MB / 12 MP / 5000 px input limits. Health: `/health`; model metadata: `/model-info`.
+
+Recorded benchmark metrics remain those of the submitted PyTorch test run; a conversion parity check does not replace a fresh ONNX benchmark. No training is performed during deployment.
