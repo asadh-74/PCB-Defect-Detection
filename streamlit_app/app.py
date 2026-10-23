@@ -20,6 +20,7 @@ from src.app_logic import (annotate, build_table, counts, crops_for, decode_imag
                            encode_png, filter_conf)
 from src.infer import PALETTE
 from src.common import CLASSES  # noqa: E402
+from streamlit_app.ui import apply_theme, render_header, render_empty, render_guide, render_footer
 
 MODEL_DIR = Path(os.environ.get("PCB_MODEL_DIR", str(ROOT / "models")))
 MODELS = {"YOLO": "yolo", "Faster R-CNN": "frcnn"}
@@ -32,7 +33,8 @@ DEFECT_INFO = {
     "spurious_copper": "Leftover copper in an area that should be empty.",
 }
 
-st.set_page_config(page_title="PCB Defect Detector", page_icon="🔍", layout="wide")
+st.set_page_config(page_title="PCB Inspection Studio | Asad Hussain", page_icon="◈", layout="wide")
+apply_theme()
 
 
 # ---------- model loading ----------
@@ -66,7 +68,9 @@ def uploaded_weights_path(upload) -> str:
 # ---------- sidebar ----------
 available = [name for name, kind in MODELS.items() if saved_weights(kind)]
 with st.sidebar:
-    st.header("Settings")
+    st.markdown('<div class="pcb-brand"><b>◈</b> Inspection controls</div>', unsafe_allow_html=True)
+    st.caption("Configure your board review")
+    st.divider()
     if available:
         model_name = st.selectbox("Model", available)
     else:
@@ -92,12 +96,10 @@ with st.sidebar:
             weights_path = uploaded_weights_path(up)
     st.divider()
     st.caption("Images are processed in memory and are not stored.")
+    st.caption("Use non-confidential PCB images in this public portfolio demo.")
 
-st.title("PCB Defect Detector")
-st.caption("Upload a bare printed circuit board image. The model finds six defect types: "
-           "missing hole, mouse bite, open circuit, short, spur, and spurious copper.")
-
-tab_detect, tab_about = st.tabs(["Detect", "About the model"])
+render_header(metrics, model_name, weights_path is not None)
+tab_detect, tab_about, tab_guide = st.tabs(["Inspection workspace", "Model performance", "Defect reference"])
 
 
 # ---------- detection ----------
@@ -118,16 +120,35 @@ def run_detection(file_bytes, name, predictor, weights_key):
 
 def show_result(idx, name, bgr, boxes, scores, cls):
     b, s, c = filter_conf(boxes, scores, cls, conf)
+    threshold_count = len(b)
+    selected = st.multiselect("Visible defect classes", CLASSES, default=CLASSES,
+                              format_func=lambda value: value.replace("_", " ").title(), key=f"classes{idx}")
+    keep = np.isin(c, [CLASSES.index(value) for value in selected])
+    b, s, c = b[keep], s[keep], c[keep]
     n = len(b)
+    annotated = annotate(bgr, b, s, c)
+    summary = st.columns(4)
+    summary[0].metric("Visible detections", n)
+    summary[1].metric("Detected classes", len(set(c.tolist())))
+    summary[2].metric("Mean confidence", f"{float(np.mean(s)):.0%}" if n else "—")
+    summary[3].metric("Analysed resolution", f"{bgr.shape[1]} × {bgr.shape[0]}")
+    st.caption(f"{threshold_count} detections above the {conf:.1%} threshold · {n} in the selected class view. Exports match this view.")
     left, right = st.columns([3, 2], gap="large")
     with left:
-        st.image(cv2.cvtColor(annotate(bgr, b, s, c), cv2.COLOR_BGR2RGB), use_container_width=True,
-                 caption=f"{name} | {bgr.shape[1]}x{bgr.shape[0]} px analysed")
-    with right:
-        if n == 0:
-            st.success("No defects detected at this confidence threshold.")
+        view = st.radio("Image view", ["Annotated", "Original", "Side by side"], horizontal=True, key=f"view{idx}")
+        if view == "Side by side":
+            original_col, annotated_col = st.columns(2)
+            original_col.image(cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB), use_container_width=True, caption="Original · analysed scale")
+            annotated_col.image(cv2.cvtColor(annotated, cv2.COLOR_BGR2RGB), use_container_width=True, caption="Detected regions")
         else:
-            st.error(f"{n} defect{'s' if n != 1 else ''} detected")
+            st.image(cv2.cvtColor(annotated if view == "Annotated" else bgr, cv2.COLOR_BGR2RGB), use_container_width=True,
+                     caption=f"{name} | {view}")
+    with right:
+        st.subheader("Inspection findings")
+        if n == 0:
+            st.info("No detections in this view. This is not a guarantee that the board is defect-free.")
+        else:
+            st.warning(f"{n} candidate defect{'s' if n != 1 else ''} · visual review recommended")
         cnt = counts(c)
         cols = st.columns(3)
         for i, cname in enumerate(CLASSES):
@@ -136,19 +157,20 @@ def show_result(idx, name, bgr, boxes, scores, cls):
         if n:
             st.dataframe(df, use_container_width=True, hide_index=True, height=min(35 * n + 38, 300))
         d1, d2 = st.columns(2)
-        d1.download_button("Annotated image (PNG)", encode_png(annotate(bgr, b, s, c)),
+        d1.download_button("Download PNG", encode_png(annotated),
                            file_name=f"{Path(name).stem}_detected.png", mime="image/png", key=f"png{idx}")
-        d2.download_button("Detections (CSV)", df.to_csv(index=False), file_name=f"{Path(name).stem}_detections.csv",
+        d2.download_button("Download CSV", df.to_csv(index=False), file_name=f"{Path(name).stem}_detections.csv",
                            mime="text/csv", key=f"csv{idx}", disabled=n == 0)
     if show_crops and n:
         with st.expander(f"Zoomed detections (top {min(n, 12)} by confidence)", expanded=False):
             items = crops_for(bgr, b, s, c)
-            cols = st.columns(6)
+            cols = st.columns(3)
             for j, (img, cap) in enumerate(items):
-                cols[j % 6].image(img, caption=cap, use_container_width=True)
+                cols[j % 3].image(img, caption=cap, use_container_width=True)
 
 
 with tab_detect:
+    st.markdown('<div class="pcb-steps"><div class="pcb-step"><b>01</b> Upload a board</div><div class="pcb-step"><b>02</b> Review the findings</div><div class="pcb-step"><b>03</b> Export your evidence</div></div>', unsafe_allow_html=True)
     if weights_path is None:
         st.warning("No trained model is available yet.")
         st.markdown(
@@ -157,11 +179,14 @@ with tab_detect:
             "3. Commit the `models/` folder, or upload the `.pt` file in the sidebar to try it now."
         )
     else:
+        st.subheader("New inspection")
+        st.caption("JPG, PNG or BMP · one or several bare-board images · analysis starts after upload")
         files = st.file_uploader("Upload PCB image(s)", type=["jpg", "jpeg", "png", "bmp"],
                                  accept_multiple_files=True)
         if not files:
-            st.info("Upload one or more images to start. Large board images work best "
-                    "(the model scans them in overlapping 640 px tiles).")
+            render_empty()
+            st.markdown('<div class="pcb-section">What the detector looks for</div>', unsafe_allow_html=True)
+            render_guide(DEFECT_INFO)
         else:
             try:
                 predictor = get_predictor(kind, str(weights_path), Path(weights_path).stat().st_mtime_ns)
@@ -191,8 +216,6 @@ with tab_about:
     st.subheader("Class colour legend")
     for class_name, (blue, green, red) in zip(CLASSES, PALETTE):
         st.markdown(f'<span style="color:rgb({red},{green},{blue})">●</span> {class_name.replace("_", " ")}', unsafe_allow_html=True)
-    st.subheader("Defect types")
-    st.table({"Defect": [c.replace("_", " ") for c in CLASSES], "Description": [DEFECT_INFO[c] for c in CLASSES]})
 
     m = read_json(MODEL_DIR / f"metrics_{kind}.json")
     if m:
@@ -222,3 +245,12 @@ with tab_about:
         "- Works on bare-board images. It is not trained for boards with components mounted.\n"
         "- This is an inspection aid, not a replacement for a human or certified AOI system."
     )
+
+with tab_guide:
+    st.subheader("Six classes. A clearer review.")
+    st.caption("Use this reference when examining annotated regions and zoomed crops.")
+    render_guide(DEFECT_INFO)
+    st.markdown('<div class="pcb-note">Start at the recorded validation threshold and 100% image scale. Lower confidence can reveal more candidate defects, but can also increase false positives. Always check the original image.</div>', unsafe_allow_html=True)
+
+render_footer()
+
