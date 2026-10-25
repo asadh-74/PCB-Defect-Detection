@@ -7,7 +7,7 @@ import streamlit as st
 def apply_theme():
     st.markdown('''<style>
     :root {color-scheme:dark}
-    .stApp {background:#0b1215;color:#edf4f2}
+    .stApp {background:radial-gradient(ellipse at 90% 0%,#14333a 0,transparent 40%),#0a1119;color:#edf4f2}
     [data-testid="stHeader"] {background:rgba(11,18,21,.94)}
     .block-container {max-width:1400px;padding-top:2rem;padding-bottom:3rem}
     [data-testid="stSidebar"] {background:#101c20;border-right:1px solid #283b40}
@@ -19,7 +19,7 @@ def apply_theme():
     .pcb-brand {font-size:15px;font-weight:750;letter-spacing:.04em;color:#f0faf6}
     .pcb-brand b {display:inline-grid;place-items:center;background:#63e6be;color:#09251d;border-radius:8px;width:34px;height:34px;margin-right:10px}
     .pcb-tag {display:inline-block;font-size:11px;letter-spacing:.08em;border:1px solid #30464c;border-radius:999px;padding:6px 11px;color:#a7c3bc;text-transform:uppercase}
-    .pcb-hero {position:relative;overflow:hidden;padding:36px;border:1px solid #2a4446;border-radius:22px;background:#122a2b;margin-bottom:22px}
+    .pcb-hero {position:relative;overflow:hidden;padding:36px;border:1px solid #2a4446;border-radius:22px;background:linear-gradient(115deg,#142f35,#102027 70%);margin-bottom:22px;min-height:320px}
     .pcb-hero:after {content:'';position:absolute;right:-45px;top:-60px;width:330px;height:330px;border:1px solid #356b60;border-radius:50%;box-shadow:0 0 0 42px #173432,0 0 0 43px #28534c,0 0 0 86px #15302e;opacity:.55;pointer-events:none}
     .pcb-hero>* {position:relative;z-index:1}
     .pcb-eyebrow {color:#72e6be;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
@@ -59,6 +59,23 @@ def apply_theme():
     [data-testid="stImage"] img {border-radius:12px}
     [data-testid="stDownloadButton"] button {width:100%;border-radius:9px;border-color:#3a6257;background:#14372c;color:#b9f3d9}
     button:focus-visible,a:focus-visible {outline:2px solid #86f5cf!important;outline-offset:3px}
+    .pcb-circuit {position:absolute!important;right:6%;top:45px;width:240px;height:240px;border:1px solid #39615a;border-radius:28px;background:repeating-linear-gradient(0deg,transparent 0 27px,#21423e 28px 29px),repeating-linear-gradient(90deg,transparent 0 27px,#21423e 28px 29px);transform:rotate(-8deg);box-shadow:0 22px 50px #0005;z-index:2!important;display:grid;place-items:center}
+    .pcb-chip {background:#0e2025;border:2px solid #75e7c0;outline:8px solid #193e3c;box-shadow:0 0 36px #75e7c025;width:134px;height:134px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#98f0d3;font:700 36px monospace;letter-spacing:.05em}
+    .pcb-chip span {font:9px monospace;letter-spacing:.12em;margin-top:10px;color:#b8d7cd}
+    .pcb-hero h1,.pcb-hero p,.pcb-pills {max-width:65%}
+    .pcb-stat {box-shadow:0 8px 24px #00000012;border-top:2px solid #365e56}
+    .pcb-stat strong {font-variant-numeric:tabular-nums}
+    .pcb-empty {background:linear-gradient(135deg,#112329,#101a22);padding:48px 24px}
+    .pcb-glyph {width:68px;height:68px;margin:auto;display:grid;place-items:center;border:1px solid #365b57;border-radius:18px;background:#17342f}
+    .pcb-defect {border-top:2px solid #5bcfa8;transition:border-color .2s}
+    .pcb-defect:hover {border-color:#75e7c0}
+    [data-testid="stCaptionContainer"] {color:#aabfb9}
+    [data-testid="stSidebar"] label {color:#c6d9d4}
+    [data-testid="stButton"] button {border-radius:10px;min-height:44px}
+    [data-testid="stFileUploaderDropzone"] button {border-color:#5b8a7c;color:#c5f5e1}
+    [data-baseweb="tab-highlight"] {background-color:#75e7c0}
+    @media(max-width:1100px) {.pcb-circuit {width:170px;height:200px;right:4%;top:70px}.pcb-chip {width:110px;height:110px;font-size:28px}}
+    @media(max-width:800px) {.pcb-circuit {display:none}.pcb-hero h1,.pcb-hero p,.pcb-pills {max-width:100%}}
     @media(max-width:800px) {.pcb-hero {padding:24px}.pcb-hero:after {opacity:.16}.pcb-stats {grid-template-columns:repeat(2,1fr)}.pcb-guide {grid-template-columns:repeat(2,1fr)}.pcb-top {align-items:flex-start}.block-container {padding-left:1rem;padding-right:1rem}.pcb-stat {padding:15px}}
     @media(max-width:480px) {.pcb-guide {grid-template-columns:1fr}.pcb-tag {font-size:9px}.pcb-step {font-size:10px}.pcb-stat strong {font-size:24px}}
     @media(prefers-reduced-motion:reduce) {* {scroll-behavior:auto!important;animation:none!important;transition:none!important}}
@@ -68,7 +85,7 @@ def apply_theme():
 def render_header(metrics, model_name, ready):
     status = 'Checkpoint available' if ready else 'Checkpoint needed'
     st.markdown(f'''<div class="pcb-top"><div class="pcb-brand"><b>◈</b> PCB / INSPECTION STUDIO</div><span class="pcb-tag">{status}</span></div>
-    <div class="pcb-hero"><div class="pcb-eyebrow">Computer vision · Bare-board inspection</div>
+    <div class="pcb-hero"><div class="pcb-circuit" aria-hidden="true"><div class="pcb-chip">PCB<span>VISION ENGINE</span></div></div><div class="pcb-eyebrow">Computer vision · Bare-board inspection</div>
     <h1>Find the fault.<br><span>See the detail.</span></h1>
     <p>Turn a board image into a focused defect review. Inspect marked regions, compare the original, and export the evidence.</p>
     <div class="pcb-pills"><span>{escape(model_name)} detector</span><span>6 defect classes</span><span>PNG + CSV exports</span><span>Human review</span></div></div>''', unsafe_allow_html=True)
@@ -76,14 +93,14 @@ def render_header(metrics, model_name, ready):
         value = metrics.get(key)
         return f'{value * 100:.1f}%' if isinstance(value, (int, float)) else '—'
     scope = 'Subset benchmark' if metrics.get('subset_evaluation') else 'Recorded test benchmark'
-    cards = [('mAP @ 0.5', percent('map50'), scope), ('Precision', percent('precision'), scope),
-             ('Recall', percent('recall'), scope), ('Defect categories', '06', 'Bare boards only')]
+    cards = [('mAP @ 0.5', percent('map50'), scope), ('mAP @ 0.5:0.95', percent('map50_95'), scope),
+             ('Precision', percent('precision'), scope), ('Recall', percent('recall'), scope)]
     st.markdown('<div class="pcb-stats">' + ''.join(f'<div class="pcb-stat"><small>{label}</small><strong>{value}</strong><span>{note}</span></div>' for label, value, note in cards) + '</div>', unsafe_allow_html=True)
 
 
 def render_empty():
-    st.markdown('''<div class="pcb-empty"><div class="pcb-glyph">⌖</div><h3>Your inspection starts here</h3>
-    <p>Drop a bare-board image above. The workspace will show annotated findings, original-image comparison, defect counts and exports. No sample predictions are shown.</p></div>''', unsafe_allow_html=True)
+    st.markdown('''<div class="pcb-empty"><div class="pcb-glyph">▧</div><h3>Your inspection starts here</h3>
+    <p>Drop a bare-board image above. The workspace will show annotated findings, original-image comparison, defect counts and exports. Choose a well-lit, top-down image of a bare board. Results appear only after actual model inference.</p></div>''', unsafe_allow_html=True)
 
 
 def render_guide(defect_info):
@@ -91,5 +108,5 @@ def render_guide(defect_info):
 
 
 def render_footer():
-    st.markdown('''<div class="pcb-footer"><span>Built by Asad Hussain · Computer vision portfolio</span>
+    st.markdown('''<div class="pcb-footer"><span>Asad Hussain · Atomcamp AI Bootcamp · NSTP Islamabad</span>
     <span><a href="https://github.com/asadh-74/PCB-Defect-Detection" target="_blank" rel="noopener noreferrer">View source ↗</a> &nbsp; / &nbsp; Inspection aid · not a certified AOI system</span></div>''', unsafe_allow_html=True)
