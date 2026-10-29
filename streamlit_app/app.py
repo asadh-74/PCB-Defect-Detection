@@ -88,12 +88,14 @@ with st.sidebar:
     show_crops = st.checkbox("Show zoomed crops of detections", value=True)
 
     weights_path = saved_weights(kind)
-    if weights_path is None:
+    if weights_path is None and os.environ.get("PCB_ALLOW_WEIGHT_UPLOAD") == "1":
         st.divider()
-        st.caption("No bundled model found. Upload trained weights to test the app:")
+        st.warning("Local trusted-model mode: only upload checkpoints you created or trust. Never enable this on a public deployment.")
         up = st.file_uploader("Weights (.pt)", type=["pt"], key="weights_upload")
         if up is not None:
             weights_path = uploaded_weights_path(up)
+    elif weights_path is None:
+        st.caption("Ask the app owner to configure a trusted trained model on the server.")
     st.divider()
     st.caption("Images are processed in memory and are not stored.")
     st.caption("Use non-confidential PCB images in this public portfolio demo.")

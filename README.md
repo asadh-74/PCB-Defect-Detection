@@ -1,5 +1,17 @@
 # PCB Defect Detection
 
+## Recruiter overview
+
+**Problem:** small defects on bare circuit boards require localized inspection rather than a single image-level label.
+
+**Implementation:** image validation, overlapping tile inference, class-aware merging and exportable annotated detections. A Streamlit workspace displays model evidence and lets reviewers filter detections.
+
+**Evidence:** bundled checkpoint loads on CPU and completes a synthetic blank-image smoke test. Existing evaluation files support the historical metrics below; this review did not rerun the full dataset evaluation. Regression tests cover parsing, preparation, metrics and UI behavior.
+
+**Limits:** dataset partition metrics are not manufacturing accuracy or a production guarantee. Public checkpoint upload is disabled by default; only trusted local experiments may opt in through `PCB_ALLOW_WEIGHT_UPLOAD=1`. Images are capped at 20 MB and 40 megapixels before full decoding.
+
+[Demo guide](DEMO.md) · [Validation notes](VALIDATION.md)
+
 AI Bootcamp final project — Computer Vision track. Author: Asad Hussain.
 
 Detect six bare-PCB defect classes: `missing_hole`, `mouse_bite`, `open_circuit`, `short`, `spur`,

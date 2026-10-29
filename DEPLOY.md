@@ -73,3 +73,7 @@ Render can host the standalone `webapp.main:app` dashboard using Python 3.12. Bu
 The build exports the **bundled** trained YOLO checkpoint to ONNX in an isolated export environment. The serving process uses ONNX Runtime without loading PyTorch, reducing memory usage. The Streamlit app and training pipeline are unchanged. Runtime accepts only board images, not executable model uploads. One scan runs at a time, with 8 MB / 12 MP / 5000 px input limits. Health: `/health`; model metadata: `/model-info`.
 
 Recorded benchmark metrics remain those of the submitted PyTorch test run; a conversion parity check does not replace a fresh ONNX benchmark. No training is performed during deployment.
+
+## Public upload controls
+
+Keep `PCB_ALLOW_WEIGHT_UPLOAD` unset on hosted apps. Bundled models are trusted deployment artifacts; user-supplied pickle-based checkpoints must not be accepted on a public server. Image decoding enforces byte, pixel-count and scale limits.

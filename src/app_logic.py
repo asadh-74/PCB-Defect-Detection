@@ -1,5 +1,6 @@
 """UI-independent logic for the Streamlit app (so it can be unit-tested without Streamlit)."""
 import io
+import math
 
 import cv2
 import numpy as np
@@ -9,14 +10,22 @@ from PIL import Image, ImageOps
 from .common import CLASSES
 from .infer import draw, tiled_predict
 
-Image.MAX_IMAGE_PIXELS = None
+MAX_PIXELS = 40_000_000
+MAX_UPLOAD_BYTES = 20 * 1024 * 1024
 MAX_SIDE = 10000  # safety cap for very large uploads
 
 
 def decode_image(file_bytes: bytes, rescale: float = 1.0) -> np.ndarray:
     """Bytes -> BGR uint8 array. Applies EXIF rotation and an optional rescale factor."""
+    if len(file_bytes) > MAX_UPLOAD_BYTES:
+        raise ValueError("Image exceeds the 20 MB upload limit")
+    if not math.isfinite(rescale) or not 0.25 <= rescale <= 2:
+        raise ValueError("Rescale must be between 0.25 and 2")
     try:
-        img = ImageOps.exif_transpose(Image.open(io.BytesIO(file_bytes))).convert("RGB")
+        with Image.open(io.BytesIO(file_bytes)) as source:
+            if source.width * source.height > MAX_PIXELS:
+                raise ValueError("Image exceeds the 40 megapixel limit")
+            img = ImageOps.exif_transpose(source).convert("RGB")
     except Exception as e:
         raise ValueError(f"Could not read this file as an image: {e}")
     w, h = img.size
